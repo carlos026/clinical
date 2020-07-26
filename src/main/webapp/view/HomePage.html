@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../resources/adminLTE/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="../resources/assets/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="../resources/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../resources/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/css/ionicons.min.css">
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+        <!-- Custom styles for this template -->
+        <link href="../resources/css/starter-template.css" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/assets/dist/css/bootstrap-reboot.css" type="text/css"/>
+        <link rel="stylesheet" href="../resources/adminLTE/dist/css/adminlte.css" type="text/css">
+        <link rel="stylesheet" href="../resources/assets/dist/css/bootstrap-datepicker.css" type="text/css">
+
+
+
+
+
+    </head>
+    <body onload="refreshTable()">
+        <nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
+            <a class="navbar-brand" href="HomePage.html">
+                <img  src="../resources/img/stethoscope.png" width="32" height="32"></a>
+            <a class="navbar-brand" href="HomePage.html">Clinical</a>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-info nav-link" data-toggle="modal" data-target="#myModal">Appointments</button>
+                    </li>
+                </ul>
+            </div>
+
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-success my-2 my-sm-0" onclick="logout()" type="submit">Logout</button>
+            </form>
+        </nav>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="h3 mb-3 font-weight-normal"><span class="fas fa-user"></span>New Appointment</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-body register-card-body">
+                                <div class="input-group mb-3">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" onclick="findAllDoctors()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Doctor
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        </div>
+                                    </div>
+                                    <input type="text" id="doctor"  class="form-control" disabled> 
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" id="dtAppoint" class="form-control" placeholder="Date Appointment">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-calendar"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="email" id="email" class="form-control" placeholder="Confirm your Email Address">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-envelope"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <textarea class="form-control" id="desc" aria-label="Appointment Description"></textarea>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-pen"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block" onclick="newAppoint(doctor, dtAppoint, email, desc)">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input class="container form-control" id="myInput" type="text" placeholder="Search..">
+        <table class="container table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Customer</th>
+                    <th>Description</th>
+                    <th>Appointment Date</th>
+                </tr>
+            </thead>
+            <tbody id="tableAppointment">
+            </tbody>
+        </table>
+
+    </body>
+
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/popper.js"></script>
+    <script src="../resources/assets/dist/js/bootstrap.min.js"></script>
+    <script src="../resources/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../resources/assets/dist/js/bootstrap-datapicker.js"></script>
+    <script src="../resources/js/homepage.js"></script>
+</html>
