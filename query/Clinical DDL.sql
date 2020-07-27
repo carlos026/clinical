@@ -5,6 +5,20 @@ CREATE TABLE Medico.doctor (
   CONSTRAINT PK_doctor PRIMARY KEY (ID_DOCTOR)
 );
 
+--Necessario inserir doutores
+INSERT INTO `medico`.`doctor`
+(`ID_DOCTOR`,`DOCTOR_NAME`,`DOCTOR_EMAIL`)
+VALUES
+(5,'Rafael Costa Neto', 'rafael.neto27@gmail.com');
+INSERT INTO `medico`.`doctor`
+(`ID_DOCTOR`,`DOCTOR_NAME`,`DOCTOR_EMAIL`)
+VALUES
+(2,'Dayane Oliveira Nascimento', 'dayane.nscimento01@hotmail.com');
+INSERT INTO `medico`.`doctor`
+(`ID_DOCTOR`,`DOCTOR_NAME`,`DOCTOR_EMAIL`)
+VALUES
+(3,'João Batista Ferreira', 'joao39@outlook.com');
+
 CREATE TABLE Medico.user (
   IDUSER INT AUTO_INCREMENT NOT NULL,
   USER_NAME VARCHAR(100) NOT NULL,
