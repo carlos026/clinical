@@ -34,8 +34,8 @@ function newAppoint(doctor, dtAppoint, email, desc) {
     });
     request.done(function (response) {
         alert(response.message);
-        this.refreshTable();
-        $("#myModal").removeClass('fade').modal('hide');
+        //$("#myModal").removeClass('fade').modal('hide');
+        location.replace("HomePage.html");
 
     });
     request.fail(function (response) {
