@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
  * @author carlos_celso
  */
 @Entity
-@Table(name = "appointment")
+@Table(name = "appointment", schema = "medico")
 public class AppointmentModel implements Serializable {
      
     private static final long serialVersionUID = 1l;

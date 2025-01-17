@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author carlos_celso
  */
 @Entity
-@Table(name="doctor")
+@Table(name="doctor", schema = "medico")
 public class DoctorModel implements Serializable{
     
     private static final long serialVersionUID = 1l;
