@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.carloscelsojr</groupId>
     <artifactId>clinical</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
     <name>clinical</name>
     <description>Simple scheduling medical appointments</description>
@@ -73,5 +73,7 @@
         </plugin>
     </plugins>
 </build>
-
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+    </properties>
 </project>
