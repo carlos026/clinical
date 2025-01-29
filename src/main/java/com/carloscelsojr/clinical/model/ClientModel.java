@@ -5,28 +5,32 @@
  */
 package com.carloscelsojr.clinical.model;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
+
+import jakarta.persistence.*;
 
 /**
  *
  * @author carlos_celso
  */
 @Entity
-@Table(name="doctor", schema = "medico")
-public class DoctorModel implements Serializable{
+@Table(name = "client", schema = "medico")
+public class ClientModel implements Serializable {
     
     private static final long serialVersionUID = 1l;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_DOCTOR")
+    @Column(name = "ID")
     private int id;
     
-    @Column(name = "DOCTOR_NAME")
+    @Column(name = "NAME")
     private String name;
     
-    @Column(name = "DOCTOR_EMAIL")
+    @Column(name = "PASSWORD")
+    private String password;
+    
+    @Column(name = "EMAIL")
     private String email;
 
     public int getId() {
@@ -36,13 +40,21 @@ public class DoctorModel implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -52,5 +64,5 @@ public class DoctorModel implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
 }

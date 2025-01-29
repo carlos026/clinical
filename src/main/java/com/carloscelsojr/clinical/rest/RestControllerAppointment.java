@@ -7,7 +7,7 @@ package com.carloscelsojr.clinical.rest;
 
 import com.carloscelsojr.clinical.facade.FacadeAppointment;
 import java.text.ParseException;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

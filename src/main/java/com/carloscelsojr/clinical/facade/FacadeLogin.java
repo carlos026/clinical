@@ -7,8 +7,8 @@ package com.carloscelsojr.clinical.facade;
 
 import com.carloscelsojr.clinical.util.UtilRequestResponse;
 import com.carloscelsojr.clinical.exception.RoleException;
-import com.carloscelsojr.clinical.model.UserModel;
-import com.carloscelsojr.clinical.repository.UserRepository;
+import com.carloscelsojr.clinical.model.ClientModel;
+import com.carloscelsojr.clinical.repository.ClientRepository;
 import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,24 +27,24 @@ public class FacadeLogin {
     private UtilRequestResponse utilRequestResponse;
     
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository clientRepository;
 
-    public ResponseEntity<?> validUser(String user, String pass) {
+    public ResponseEntity<?> validClient(String email, String pass) {
         ResponseEntity<?> output = null;
         try {
             HashMap<String, Object> body = new HashMap<>();
-            List<UserModel> listUsers = userRepository.findAllByUserEmail(user);
+            List<ClientModel> listClients = clientRepository.findAllByEmail(email);
             
-            if (listUsers.size() == 0) {
+            if (listClients.size() == 0) {
                 throw new RoleException("Customer not found!");
             }
-            String userPass = listUsers.get(0).getUserPass();
-            if (!userPass.equals(pass)) {
+            String clientPass = listClients.get(0).getPassword();
+            if (!clientPass.equals(pass)) {
                 throw new RoleException("Invalid Password!");
             }
             
             body.put("message", "User login success");
-            body.put("id", listUsers.get(0).getId());
+            body.put("id", listClients.get(0).getId());
             output = ResponseEntity
                     .status(HttpStatus.OK)
                     .body(body);
@@ -54,29 +54,29 @@ public class FacadeLogin {
         return output;
     }
 
-    public ResponseEntity<?> newUser(String userName, String userEmail, String userPass) {
+    public ResponseEntity<?> newClient(String name, String email, String password) {
         ResponseEntity<?> output = null;
         try {
             HashMap<String, Object> body = new HashMap<>();
             
-            if (userEmail.isEmpty() || userName.isEmpty() || userPass.isEmpty()) {
+            if (email.isEmpty() || name.isEmpty() || password.isEmpty()) {
                 throw new RoleException("Invalid character or field is empty!");
             }
             
-//            if(userEmail.split("@").length > 1){
+//            if(email.split("@").length > 1){
 //                 throw new RoleException("Invalid Email Address!");
 //            }
             
-            UserModel userModel = new UserModel();
-            userModel.setUserName(userName);
-            userModel.setUserEmail(userEmail);
-            userModel.setUserPass(userPass);
+            ClientModel client = new ClientModel();
+            client.setName(name);
+            client.setEmail(email);
+            client.setPassword(password);
             
-            List<UserModel> listUsers = userRepository.findAllByUserEmail(userModel.getUserEmail());
-            if (listUsers.size() > 0) {
+            List<ClientModel> listClients = clientRepository.findAllByEmail(client.getEmail());
+            if (listClients.size() > 0) {
                 throw new RoleException("User already exists!");
             }
-            userRepository.save(userModel);
+            clientRepository.save(client);
             body.put("message", "User successfully registered!");
             output = ResponseEntity
                     .status(HttpStatus.OK)

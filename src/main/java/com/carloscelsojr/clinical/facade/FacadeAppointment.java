@@ -8,10 +8,10 @@ package com.carloscelsojr.clinical.facade;
 import com.carloscelsojr.clinical.exception.RoleException;
 import com.carloscelsojr.clinical.model.AppointmentModel;
 import com.carloscelsojr.clinical.model.DoctorModel;
-import com.carloscelsojr.clinical.model.UserModel;
+import com.carloscelsojr.clinical.model.ClientModel;
 import com.carloscelsojr.clinical.repository.AppointmentRepository;
 import com.carloscelsojr.clinical.repository.MedicRepository;
-import com.carloscelsojr.clinical.repository.UserRepository;
+import com.carloscelsojr.clinical.repository.ClientRepository;
 import com.carloscelsojr.clinical.util.UtilRequestResponse;
 import com.carloscelsojt.clinical.dto.AppointmentDto;
 import java.text.ParseException;
@@ -42,7 +42,7 @@ public class FacadeAppointment {
     private UtilRequestResponse utilRequestResponse;
 
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository clientRepository;
 
     public ResponseEntity<?> listAllDoctors() {
         ResponseEntity<?> output = null;
@@ -67,9 +67,9 @@ public class FacadeAppointment {
             HashMap<String, Object> body = new HashMap<>();
             Date dtAp = new SimpleDateFormat("dd/MM/yyyy").parse(dtAppoint);
 
-            List<UserModel> user = userRepository.findAllByUserEmail(email);
+            List<ClientModel> client = clientRepository.findAllByEmail(email);
 
-            if (user.size() == 0) {
+            if (client.size() == 0) {
                 throw new RoleException("Your email was not found!");
             }
 
@@ -78,7 +78,7 @@ public class FacadeAppointment {
             appointment.setCreationDate(dtAp);
             appointment.setAppDoctor(doctorModel);
             appointment.setDesc(desc);
-            appointment.setAppUser(user.get(0));
+            appointment.setClient(client.get(0));
             appointmentRepository.save(appointment);
 
             body.put("data", medicRepository.findAll());
@@ -109,7 +109,7 @@ public class FacadeAppointment {
             for (AppointmentModel appointment : appointmentList) {
                 AppointmentDto itemApp = new AppointmentDto();
                 itemApp.setDoctor(appointment.getAppDoctor().getName());
-                itemApp.setCustomer(appointment.getAppUser().getUserName());
+                itemApp.setCustomer(appointment.getClient().getName());
                 itemApp.setDesc(appointment.getDesc());
                 itemApp.setDtAppoint(appointment.getCreationDate());
                 itemsApp.add(itemApp);

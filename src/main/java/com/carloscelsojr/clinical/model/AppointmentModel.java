@@ -7,18 +7,7 @@ package com.carloscelsojr.clinical.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import jakarta.persistence.*;
 
 /**
  *
@@ -39,8 +28,8 @@ public class AppointmentModel implements Serializable {
     private DoctorModel appDoctor;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID_APPOINTMENT_USER", referencedColumnName = "IDUSER")
-    private UserModel appUser;
+    @JoinColumn(name = "ID_APPOINTMENT_CLIENT", referencedColumnName = "ID")
+    private ClientModel client;
     
     @Column(name = "DESCRIPTION")
     private String desc;
@@ -65,12 +54,12 @@ public class AppointmentModel implements Serializable {
         this.appDoctor = appDoctor;
     }
 
-    public UserModel getAppUser() {
-        return appUser;
+    public ClientModel getClient() {
+        return client;
     }
 
-    public void setAppUser(UserModel appUser) {
-        this.appUser = appUser;
+    public void setClient(ClientModel client) {
+        this.client = client;
     }
 
     public String getDesc() {

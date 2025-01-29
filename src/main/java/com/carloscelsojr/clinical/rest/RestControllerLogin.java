@@ -6,16 +6,13 @@
 package com.carloscelsojr.clinical.rest;
 
 import com.carloscelsojr.clinical.facade.FacadeLogin;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -30,11 +27,11 @@ public class RestControllerLogin {
     
     @Transactional
     @GetMapping("/valid")
-    public ResponseEntity<?> validUser(
+    public ResponseEntity<?> validClient(
             @RequestParam String user,
             @RequestParam String pass
     ){
-        return facadeLogin.validUser(user, pass);
+        return facadeLogin.validClient(user, pass);
     }
     
     @Transactional
@@ -44,7 +41,7 @@ public class RestControllerLogin {
             @RequestParam String userEmail,
             @RequestParam String userPass
     ){
-        return facadeLogin.newUser(userName, userEmail, userPass);
+        return facadeLogin.newClient(userName, userEmail, userPass);
     }
    
 }

@@ -11,12 +11,12 @@ INSERT INTO `medico`.`doctor`
 VALUES
 (3,'João Batista Ferreira', 'joao39@outlook.com');
 
-INSERT INTO medico.user
-(`USER_NAME`,`USER_PASSWORD`,`USER_EMAIL`)
+INSERT INTO `medico`.`client`
+(`NAME`,`PASSWORD`,`EMAIL`)
 VALUES
 ('Renata Sorrah','123', 'renata@outlook.com');
 
 INSERT INTO medico.appointment
-(`ID_APPOINTMENT_DOCTOR`,`ID_APPOINTMENT_USER`,`DESCRIPTION`,`CREATION_DATE`)
+(`ID_APPOINTMENT_DOCTOR`,`ID_APPOINTMENT_CLIENT`,`DESCRIPTION`,`CREATION_DATE`)
 VALUES
 (2,1,'Customer reported fever','2025-01-09');
