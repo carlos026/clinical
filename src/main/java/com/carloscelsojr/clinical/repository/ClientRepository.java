@@ -5,7 +5,7 @@
  */
 package com.carloscelsojr.clinical.repository;
 
-import com.carloscelsojr.clinical.model.UserModel;
+import com.carloscelsojr.clinical.model.ClientModel;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,8 +13,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author carlos_celso
  */
-public interface UserRepository extends JpaRepository<UserModel, Long> {
+public interface ClientRepository extends JpaRepository<ClientModel, Long> {
 
-    public List<UserModel> findAllByUserEmail(String email);
+    public List<ClientModel> findAllByEmail(String email);
     
 }

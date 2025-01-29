@@ -22,7 +22,7 @@ function getDoctor(value) {
 
 function newAppoint(doctor, dtAppoint, email, desc) {
     var request = $.ajax({
-        url: '../view/Appointment/'
+        url: '../view/Appointment'
         , type: 'GET'
         , timeout: 999999
         , data: {
@@ -47,7 +47,7 @@ function newAppoint(doctor, dtAppoint, email, desc) {
 
 function findAllDoctors() {
     var request = $.ajax({
-        url: '../view/doctors/'
+        url: '../view/doctors'
         , type: 'GET'
         , timeout: 999999
     });
@@ -67,7 +67,7 @@ function findAllDoctors() {
 
 function refreshTable() {
     var request = $.ajax({
-        url: '../view/grid/'
+        url: '../view/grid'
         , type: 'GET'
         , timeout: 999999
     });

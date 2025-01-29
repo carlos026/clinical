@@ -1,6 +1,6 @@
 function login(name, pass) {
     var request = $.ajax({
-        url: '../view/valid/'
+        url: '../view/valid'
         , type: 'GET'
         , timeout: 999999
         , data: {
@@ -20,7 +20,7 @@ function login(name, pass) {
 
 function newUser(userName, userEmail, userPass) {
     var request = $.ajax({
-        url: '../view/newUser/'
+        url: '../view/newUser'
         , type: 'GET'
         , timeout: 999999
         , data: {

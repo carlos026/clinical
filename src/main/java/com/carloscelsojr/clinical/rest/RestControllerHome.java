@@ -5,7 +5,6 @@
  */
 package com.carloscelsojr.clinical.rest;
 
-import javax.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
