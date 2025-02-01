@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.carloscelsojr.clinical.facade;
 
 import com.carloscelsojr.clinical.exception.RoleException;
@@ -27,7 +22,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author carlos_celso
+ * @author ccondejr
  */
 @Service
 public class FacadeAppointment {

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clinical Software</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../resources/adminLTE/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="../resources/assets/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="../resources/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../resources/adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/css/ionicons.min.css">
+        <link rel="stylesheet" href="../resources/adminLTE/dist/css/adminlte.min.css">
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            p{
+                margin-top: 1rem;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+        <link href="../resources/css/signin.css" rel="stylesheet">
+    </head>
+    <body class="text-center">
+        <form class="form-signin" method="post" action="#" th:action="@{/login}">
+            <img class="mb-4" src="../resources/img/stethoscope.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input id="username" name="username" type="email" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <p>Don't have an account? Sign up <button data-toggle="modal" data-target="#myModal">here</button></p> 
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="h3 mb-3 font-weight-normal"><span class="fas fa-user"></span> New User</h1>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="card-body register-card-body">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="userFullName" id="userFullName" class="form-control" placeholder="Full name">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label for="inputEmail" class="sr-only">Email address</label>
+                                        <input type="email" name="userEmail" id="userEmail" class="form-control" placeholder="Email address">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="password" name="userPass" id="userPass" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block" onclick="newUser(userFullName, userEmail, userPass)">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
+
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/assets/dist/js/bootstrap.min.js"></script>
+<script src="../resources/js/login.js" lang="javascript/json"></script>
+
