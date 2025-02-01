@@ -13,7 +13,7 @@ import com.carloscelsojr.clinical.repository.AppointmentRepository;
 import com.carloscelsojr.clinical.repository.MedicRepository;
 import com.carloscelsojr.clinical.repository.ClientRepository;
 import com.carloscelsojr.clinical.util.UtilRequestResponse;
-import com.carloscelsojt.clinical.dto.AppointmentDto;
+import com.carloscelsojr.clinical.dto.AppointmentDto;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
