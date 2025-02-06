@@ -24,31 +24,6 @@ public class FacadeLogin {
     @Autowired
     private ClientRepository clientRepository;
 
-    public ResponseEntity<?> validClient(String email, String pass) {
-        ResponseEntity<?> output = null;
-        try {
-            HashMap<String, Object> body = new HashMap<>();
-            List<ClientModel> listClients = clientRepository.findAllByEmail(email);
-            
-            if (listClients.size() == 0) {
-                throw new RoleException("Customer not found!");
-            }
-            String clientPass = listClients.get(0).getPassword();
-            if (!clientPass.equals(pass)) {
-                throw new RoleException("Invalid Password!");
-            }
-            
-            body.put("message", "User login success");
-            body.put("id", listClients.get(0).getId());
-            output = ResponseEntity
-                    .status(HttpStatus.OK)
-                    .body(body);
-        } catch (RoleException e) {
-            output = utilRequestResponse.getErrorResponse(e);
-        }
-        return output;
-    }
-
     public ResponseEntity<?> newClient(String name, String email, String password) {
         ResponseEntity<?> output = null;
         try {

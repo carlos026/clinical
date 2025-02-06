@@ -84,7 +84,3 @@ function refreshTable() {
         alert(response.responseJSON.message);
     });
 }
-
-function logout() {
-         location.replace("Login.html");
-}

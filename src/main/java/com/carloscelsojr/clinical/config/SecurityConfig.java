@@ -30,9 +30,12 @@ public class SecurityConfig {
                     req.requestMatchers("/resources/**").permitAll();
                     req.anyRequest().authenticated();
                 })
+                .csrf(req -> req.ignoringRequestMatchers("/logout"))
                 .formLogin(form -> form.loginPage("/login")
-                        .defaultSuccessUrl("/view/HomePage.html").permitAll())
-                .logout(logout -> logout.logoutSuccessUrl("/view/Login.html?logout").permitAll())
+                        .defaultSuccessUrl("/view/HomePage.html", true).permitAll())
+                .logout(logout -> logout.logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout"))
                 .build();
     }
+    
 }

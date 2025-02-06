@@ -21,15 +21,6 @@ public class RestControllerLogin {
     private FacadeLogin facadeLogin;
     
     @Transactional
-    @GetMapping("/valid")
-    public ResponseEntity<?> validClient(
-            @RequestParam String user,
-            @RequestParam String pass
-    ){
-        return facadeLogin.validClient(user, pass);
-    }
-    
-    @Transactional
     @GetMapping("/newUser")
     public ResponseEntity<?> newUser(
             @RequestParam String userName,
